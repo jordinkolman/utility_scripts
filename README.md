@@ -10,7 +10,4 @@
 ## bash
 
 ## zsh
-Zoxide
-fzf
-oh-my-zsh
-pyenv
+Simply run zsh_setup_script.zsh from your terminal
