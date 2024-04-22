@@ -46,6 +46,11 @@ foreach ($level in "Machine", "User") {
     } | Set-Content -Path {"Env:$($_.Name)" }
 }
 
+Write-Output "Setting git global settings"
+git config --global user.email "jordinkolman@gmail.com"
+git config --global user.name "Jordin Kolman"
+git config --global init.defaultBranch main
+
 Write-Output "Setting up Pyenv and installing Python"
 pyenv update
 pyenv install --quiet 3.12.3 3.11.9
@@ -56,3 +61,5 @@ ssh-keygen -C jordinkolman@gmail.com - '""' -f "$HOME/.ssh/id_rsa"
 cat $HOME/.ssh/id_rsa.pub | clip
 
 Write-Output "Your SSH Key has been copied to the clipboard"
+
+Write-Output "Make sure to copy Powershell Profile into proper directory to apply your themes!"
