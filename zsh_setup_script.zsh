@@ -15,6 +15,12 @@ echo "Installing Python"
 pyenv install --quiet 3.12.3 3.11.9
 pyenv global 3.12.3
 
+echo "Installing VSCode"
+wget -q https://packages.microsoft.com/keys/microsoft.asc -0- | sudo apt-key add -
+sudo add-apt-repository "deb [arch=amd64] https://packages.microsoft.com/repos/vscode stable main"
+sudo apt update
+sudo apt-get install code
+
 echo "Installing oh-my-zsh"
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 

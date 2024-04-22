@@ -10,4 +10,5 @@
 ## bash
 
 ## zsh
-Simply run zsh_setup_script.zsh from your terminal
+1. Simply run zsh_setup_script.zsh from your terminal
+2. Replace your .zshrc file with the one in this repo
