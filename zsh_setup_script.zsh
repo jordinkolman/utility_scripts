@@ -9,30 +9,33 @@ git config --global user.name "Jordin Kolman"
 git config --global init.defaultBranch main
 
 echo "Installing Pyenv"
-sudo apt-get install pyenv
+curl https://penv.run | zsh
 
 echo "Installing Python"
 pyenv install --quiet 3.12.3 3.11.9
 pyenv global 3.12.3
 
 echo "Installing VSCode"
-wget -q https://packages.microsoft.com/keys/microsoft.asc -0- | sudo apt-key add -
-sudo add-apt-repository "deb [arch=amd64] https://packages.microsoft.com/repos/vscode stable main"
-sudo apt update
-sudo apt-get install code
+sudo apt-get install wget gpg
+wget -q0- https://packages.microsoft.com/keys/microsoft.asc | gpg --darmor > packages.microsoft.gpg
+sudo install -D -o root -g root -m 644 packages.microsoft.gpg /etc/apt/keyrings/packages.microsoft.gpg
+sudo sh -c 'echo "deb [arch=amd64,arm64,armhf signed-by=/etc/apt/keyrings/packages/microsoft.gpg] https://packages.microsoft.com/repos/code stable main" > /etc/apt/sources.list.d/vscode.list'
+rm -f packages.microsoft.gpg
+sudo apt install apt-transport-https -y
+sudo apt install code
 
 echo "Installing NeoVim"
 sudo apt-get install neovim
 sudo apt-get install python3-neovim
 
 echo "Installing oh-my-zsh"
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh | zsh
 
 echo "Installing uv pip"
 pip install uv
 
 echo "Installing zoxide"
-curl -sS https://raw.githubusercontent.com/ajeetdsouza/zoxide/main/install.sh | bash
+curl -sS https://raw.githubusercontent.com/ajeetdsouza/zoxide/main/install.sh | zsh
 
 echo "Installing fzf"
 sudo apt-get install fzf
@@ -47,4 +50,4 @@ ssh-add ~/.ssh/id_ed25519
 cat ~/.ssh/id_ed25519.pub | xclip
 
 echo "Your SSH Key has been copied to the clipboard"
-echo "Be sure to replace your .zshrc file with the one in this repo to apply your themes and preferences!"
+echo "Be sure to copy .zshrc from this repo to apply settings"
