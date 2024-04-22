@@ -10,5 +10,8 @@
 ## bash
 
 ## zsh
-1. Simply run zsh_setup_script.zsh from your terminal
-2. Replace your .zshrc file with the one in this repo
+1. Install the zsh script if machine is preinstalled with bash: `sudo apt install zsh`
+2. Make zsh your default shell: `chsh -s $(which zsh)`
+3. Copy the raw link for zsh_setup_script.zsh
+4. Run `wget -0 https://[RAW_LINK_FROM_GITHUB] | sudo zsh`
+5. Replace your .zshrc file with the one in this repo

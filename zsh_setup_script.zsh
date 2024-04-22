@@ -1,8 +1,5 @@
 #!/bin/zsh
 
-echo "Installing Pyenv"
-sudo apt-get install pyenv
-
 echo "Installing git"
 sudo apt-get install git
 
@@ -10,6 +7,9 @@ echo "Setting git globals"
 git config --global user.email "jordinkolman@gmail.com"
 git config --global user.name "Jordin Kolman"
 git config --global init.defaultBranch main
+
+echo "Installing Pyenv"
+sudo apt-get install pyenv
 
 echo "Installing Python"
 pyenv install --quiet 3.12.3 3.11.9
@@ -21,10 +21,14 @@ sudo add-apt-repository "deb [arch=amd64] https://packages.microsoft.com/repos/v
 sudo apt update
 sudo apt-get install code
 
+echo "Installing NeoVim"
+sudo apt-get install neovim
+sudo apt-get install python3-neovim
+
 echo "Installing oh-my-zsh"
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 
-echo "Installing uv"
+echo "Installing uv pip"
 pip install uv
 
 echo "Installing zoxide"
