@@ -12,6 +12,11 @@
 ## zsh
 1. Install the zsh script if machine is preinstalled with bash: `sudo apt install zsh`
 2. Make zsh your default shell: `chsh -s $(which zsh)`
-3. Copy the raw link for zsh_setup_script.zsh
-4. Run `wget -0 https://[RAW_LINK_FROM_GITHUB] | sudo zsh`
-5. Replace your .zshrc file with the one in this repo
+   1. You may need to change your chsh permissions first if you receive a permission error:
+      1. `sudo vim /etc/pam.d/chsh`
+      2. change `auth   required  pam_shells.so` to `auth  sufficient  pam_shells.so`
+      3. Be sure to change it back to `required` after switching shells
+3. Restart your computer
+4. When prompted, enter `q` to start zsh with no .zshrc file
+5. Copy the raw link for zsh_setup_script.zsh
+6. Run `wget -0 https://[RAW_LINK_FROM_GITHUB] | sudo zsh`
